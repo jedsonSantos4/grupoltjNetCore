@@ -1,0 +1,15 @@
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\bin\Debug\net5.0\Infrastructure.deps.json
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\bin\Debug\net5.0\Infrastructure.dll
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\bin\Debug\net5.0\ref\Infrastructure.dll
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\bin\Debug\net5.0\Infrastructure.pdb
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\bin\Debug\net5.0\AppCore.dll
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\bin\Debug\net5.0\AppCore.pdb
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\obj\Debug\net5.0\Infrastructure.csprojAssemblyReference.cache
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\obj\Debug\net5.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\obj\Debug\net5.0\Infrastructure.AssemblyInfo.cs
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\obj\Debug\net5.0\Infrastructure.csproj.CopyComplete
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\obj\Debug\net5.0\Infrastructure.dll
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\obj\Debug\net5.0\ref\Infrastructure.dll
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Infrastructure\obj\Debug\net5.0\Infrastructure.pdb

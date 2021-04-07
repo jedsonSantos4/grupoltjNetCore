@@ -1,0 +1,11 @@
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\bin\Debug\net5.0\AppCore.deps.json
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\bin\Debug\net5.0\AppCore.dll
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\bin\Debug\net5.0\ref\AppCore.dll
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\bin\Debug\net5.0\AppCore.pdb
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\obj\Debug\net5.0\AppCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\obj\Debug\net5.0\AppCore.AssemblyInfoInputs.cache
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\obj\Debug\net5.0\AppCore.AssemblyInfo.cs
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\obj\Debug\net5.0\AppCore.csproj.CoreCompileInputs.cache
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\obj\Debug\net5.0\AppCore.dll
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\obj\Debug\net5.0\ref\AppCore.dll
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\obj\Debug\net5.0\AppCore.pdb
