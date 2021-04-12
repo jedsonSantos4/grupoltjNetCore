@@ -36,9 +36,12 @@ namespace Infrastructure.Repositories
 
         }
 
-        public Task<UserEntity> Get(string id)
+        public async Task<UserEntity> Get(string id)
         {
-            throw new System.NotImplementedException();
+
+            var filter = Builders<UserEntity>.Filter.Eq(s => s.Id, id);
+            return await Collection.Find(filter).FirstOrDefaultAsync();
+
         }
 
         public async Task<List<UserEntity>> GeAll() => await Collection.Find(_ => true).ToListAsync();

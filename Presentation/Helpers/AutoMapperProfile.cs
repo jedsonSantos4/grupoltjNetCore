@@ -12,7 +12,8 @@ namespace Presentation
     {
         public AutoMapperProfile()
         {
-            CreateMap<UserEntity, UserViewModel>();
+            CreateMap<UserEntity, UserViewModel>()
+                .ForMember(des=> des.Id, opt => opt.MapFrom(s=> s.Id.ToString()));
             CreateMap<UserViewModel, UserEntity>();
         }
     }

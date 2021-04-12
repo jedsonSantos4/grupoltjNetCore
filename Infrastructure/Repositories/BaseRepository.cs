@@ -30,16 +30,17 @@ namespace Infrastructure.Repositories
 
         public async Task UpdateAsync(T obj)
         {
-            Expression<Func<T, string>> func = f => f.InternalId.ToString();
-            var value = (string)obj.GetType().GetProperty(func.Body.ToString().Split(".")[1]).GetValue(obj, null);
+            Expression<Func<T, string>> func = f => f.Id;
+            var value = (string)obj.GetType().GetProperty(func.Body.ToString().Split(".")[1]).GetValue(obj,null);
             var filter = Builders<T>.Filter.Eq(func, value);
+
 
             if (obj != null)
                 await Collection.ReplaceOneAsync(_clientSessionHandle, filter, obj);
         }
 
         public async Task DeleteAsync(string id) =>
-            await Collection.DeleteOneAsync(_clientSessionHandle, f => f.InternalId.ToString() == id);     
+            await Collection.DeleteOneAsync(_clientSessionHandle, f => f.Id.ToString() == id);     
        
     }
 }

@@ -80,7 +80,15 @@ namespace AppCore.Services
             var result = new ValidResult<bool>();
             try
             {
-                await _useRepo.UpdateAsync(obj);
+                var user = await _useRepo.Get(obj.Id);
+
+                user.Email = obj.Email;
+                user.Nome =obj.Nome;
+                user.Role = obj.Role;
+
+
+
+                await _useRepo.UpdateAsync(user);
                 result.Status = true;
                 result.Value = true;
                 return result;
@@ -92,9 +100,20 @@ namespace AppCore.Services
             }
         }
 
-        public Task<ValidResult<UserEntity>> Get(string id)
+        public async Task<ValidResult<UserEntity>> Get(string id)
         {
-            throw new NotImplementedException();
+            var result = new ValidResult<UserEntity>();
+            try
+            {
+                result.Value = await _useRepo.Get(id);
+                result.Status = true;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.Message = ex.Message;
+                return result;
+            }
         }
         
         public async Task<ValidResult<List<UserEntity>>> GetAll()
@@ -102,10 +121,8 @@ namespace AppCore.Services
             var result = new ValidResult<List<UserEntity>>();
             try
             {
-                var teste = await _useRepo.GeAll();
-
-                result.Status = true;
-                result.Value = teste;
+                result.Value = await _useRepo.GeAll();
+                result.Status = true;               
                 return result;
             }
             catch (Exception ex)

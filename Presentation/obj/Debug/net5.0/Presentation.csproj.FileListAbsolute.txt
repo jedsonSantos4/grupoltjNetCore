@@ -1,10 +1,3 @@
-C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.csprojAssemblyReference.cache
-C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.AssemblyInfoInputs.cache
-C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.AssemblyInfo.cs
-C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.csproj.CoreCompileInputs.cache
-C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\bin\Debug\net5.0\appsettings.json
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\bin\Debug\net5.0\Presentation.exe
@@ -45,6 +38,13 @@ C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\bin\Debug\net5.0\
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\bin\Debug\net5.0\Infrastructure.dll
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\bin\Debug\net5.0\AppCore.pdb
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\bin\Debug\net5.0\Infrastructure.pdb
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.csprojAssemblyReference.cache
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.AssemblyInfoInputs.cache
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.AssemblyInfo.cs
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.csproj.CoreCompileInputs.cache
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\staticwebassets\Presentation.StaticWebAssets.Manifest.cache
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\staticwebassets\Presentation.StaticWebAssets.xml
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\scopedcss\bundle\Presentation.styles.css
