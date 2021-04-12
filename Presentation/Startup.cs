@@ -18,6 +18,7 @@ namespace Presentation
 {
     public class Startup
     {
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,14 +32,15 @@ namespace Presentation
             #region Config MongoDB
             services.AddSingleton<IMongoClient>(c =>
             {                
-                return new MongoClient(
-                    "mongodb+srv://deploy:lnsF8dCqiUdvEjeO@cluster0.2nbsy.mongodb.net/grupoltj?retryWrites=true&w=majority");
+                return new MongoClient(Configuration.GetConnectionString("mongoLtj"));
             });
             services.AddScoped(c =>
                      c.GetService<IMongoClient>().StartSession());
             #endregion
 
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
+
+            services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
 
             services.AddControllers();
 
@@ -97,17 +99,16 @@ namespace Presentation
 
             #region services
           
-            services.AddTransient <IUserServece, UserService>();
-            services.AddTransient<ITokenService, AppCore.Services.TokenService>();
             
-            
+            services.AddTransient<IUserService, UserService>();
+                       
 
             #endregion
 
 
             #region repositorios
+            
             services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<IUserTokenRepository, UserTokenRepository>();
             #endregion
 
         }

@@ -4,11 +4,10 @@ using System.Threading.Tasks;
 
 namespace AppCore.Interface.Repositores
 {
-    public interface IUserRepository: IBaseRepository<UserEntity> 
-    {      
-        Task<IEnumerable<UserEntity>> GetRegisterUsersAll();
-
-        Task<UserEntity> GetRegisterUser(string id);
-
+    public interface IUserRepository : IBaseRepository<UserEntity> 
+    {
+       Task<UserEntity> Get(string nome, string password);
+        Task<UserEntity> Get(string id);
+        Task<List<UserEntity>> GeAll();
     }
 }

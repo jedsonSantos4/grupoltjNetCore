@@ -1,46 +1,37 @@
 ﻿using AppCore.Entities;
 using AppCore.Interface.Repositores;
 using AppCore.Interface.Services;
+using AppCore.validacoes;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace AppCore.Services
 {
-    public class UserService : IUserServece
+    public class UserService : IUserService
     {
-        private readonly IUserRepository _userRepo;
-        public UserService(IUserRepository userRepository)
+        private readonly IUserRepository _useRepo;
+        public UserService(IUserRepository tokebRepo)
         {
-            _userRepo = userRepository;
+            _useRepo = tokebRepo;
         }
 
-        public async Task<ValidResult<bool>> UpdateAsync(UserEntity user)
+        public async Task<ValidResult<UserEntity>> Auth(string email, string password)
         {
-            var result = new ValidResult<bool>();
-            try
-            {
-                await _userRepo.UpdateAsync(user);
-                result.Status = true;
-                result.Value = true;
+            var result = new ValidResult<UserEntity>();
+
+            if (!ValidationEmail.IsValidEmail(email))
                 return result;
-            }
-            catch (Exception ex)
-            {
-                 result.Message = ex.Message;
-                return result;               
-            }
-        }
 
-        public async Task<ValidResult<bool>> InsertAsync(UserEntity user)
-        {
-            var result = new ValidResult<bool>();
             try
             {
-                await _userRepo.InsertAsync(user);
+                result.Value = await _useRepo.Get(email,password);
+
+                //if (!ValidationPassword.IsPassWord(result.Value.password, password))
+                //    throw new Exception();
+
                 result.Status = true;
-                result.Value = true;
                 return result;
             }
             catch (Exception ex)
@@ -49,13 +40,13 @@ namespace AppCore.Services
                 return result;
             }
         }
-        
+       
         public async Task<ValidResult<bool>> DeleteAsync(string id)
         {
             var result = new ValidResult<bool>();
             try
             {
-                await _userRepo.DeleteAsync(id);
+                await _useRepo.DeleteAsync(id);
                 result.Status = true;
                 result.Value = true;
                 return result;
@@ -67,13 +58,14 @@ namespace AppCore.Services
             }
         }
 
-        public async Task<ValidResult<UserEntity>> GetRegisterUser(string id)
+        public async Task<ValidResult<bool>> InsertAsync(UserEntity obj)
         {
-            var result = new ValidResult<UserEntity>();
+            var result = new ValidResult<bool>();
             try
             {
-                result.Value =  await _userRepo.GetRegisterUser(id);
-                result.Status = true;                
+                await _useRepo.InsertAsync(obj);
+                result.Status = true;
+                result.Value = true;
                 return result;
             }
             catch (Exception ex)
@@ -83,14 +75,37 @@ namespace AppCore.Services
             }
         }
 
-        public async Task<ValidResult<List<UserEntity>>> GetRegisterUsersAll()
+        public async Task<ValidResult<bool>> UpdateAsync(UserEntity obj)
+        {
+            var result = new ValidResult<bool>();
+            try
+            {
+                await _useRepo.UpdateAsync(obj);
+                result.Status = true;
+                result.Value = true;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.Message = ex.Message;
+                return result;
+            }
+        }
+
+        public Task<ValidResult<UserEntity>> Get(string id)
+        {
+            throw new NotImplementedException();
+        }
+        
+        public async Task<ValidResult<List<UserEntity>>> GetAll()
         {
             var result = new ValidResult<List<UserEntity>>();
             try
             {
-                var ctrl = await _userRepo.GetRegisterUsersAll();
+                var teste = await _useRepo.GeAll();
+
                 result.Status = true;
-                result.Value = ctrl.ToList();
+                result.Value = teste;
                 return result;
             }
             catch (Exception ex)
@@ -99,7 +114,5 @@ namespace AppCore.Services
                 return result;
             }
         }
-   
-
     }
 }

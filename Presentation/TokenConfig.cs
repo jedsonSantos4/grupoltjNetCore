@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Presentation
 {
-    public class TokenService
+    public class TokenConfig
     {
-        public static string GenerateToken(UserTokenEntity userToken)
+        public static string GenerateToken(UserEntity userToken)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
@@ -17,7 +17,7 @@ namespace Presentation
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, userToken.nome.ToString()),
+                    new Claim(ClaimTypes.Name, userToken.Nome.ToString()),
                     new Claim(ClaimTypes.Role, userToken.Role.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
