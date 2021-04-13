@@ -25,8 +25,11 @@ namespace Infrastructure.Repositories
         protected virtual IMongoCollection<T> Collection =>
        _mongoClient.GetDatabase(DATABASE).GetCollection<T>(_collection);
 
-        public async Task InsertAsync(T obj) =>
-      await Collection.InsertOneAsync(_clientSessionHandle, obj);
+        public async Task InsertAsync(T obj) {
+                        
+            obj.DataCreate = DateTime.Now;
+            await Collection.InsertOneAsync(_clientSessionHandle, obj);
+        }
 
         public async Task UpdateAsync(T obj)
         {
@@ -40,7 +43,7 @@ namespace Infrastructure.Repositories
         }
 
         public async Task DeleteAsync(string id) =>
-            await Collection.DeleteOneAsync(_clientSessionHandle, f => f.Id.ToString() == id);     
+            await Collection.DeleteOneAsync(_clientSessionHandle, f => f.Id == id);     
        
     }
 }

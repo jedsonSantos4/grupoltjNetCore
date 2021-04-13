@@ -1,5 +1,8 @@
-﻿using System;
+﻿using AppCore.Entities;
+using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace AppCore
@@ -44,6 +47,11 @@ namespace AppCore
             {
                 return false;
             }
+        }
+
+        public static bool ExistingEmail(UserEntity user, List<UserEntity> source)
+        {
+            return source.Any(e => e.Email.Trim().ToUpper().Equals(user.Email.Trim().ToUpper()));
         }
 
     }

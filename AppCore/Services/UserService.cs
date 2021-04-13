@@ -63,6 +63,27 @@ namespace AppCore.Services
             var result = new ValidResult<bool>();
             try
             {
+                var users = await GetAll();
+
+                if (users.Value == null || !users.Status)
+                {
+                    result.Message = "Error: when querying user existence. Please try again!";
+                    return result;
+                }
+
+                if (!ValidationEmail.IsValidEmail(obj.Email))
+                {
+                    result.Message = "Erro: Email type is not valid. Please try again!";
+                    return result;
+                }
+
+                if (ValidationEmail.ExistingEmail(obj, users.Value))
+                {
+                    result.Message = "Erro: Email already has a registration. Please try another email";
+                    return result;
+                }
+
+
                 await _useRepo.InsertAsync(obj);
                 result.Status = true;
                 result.Value = true;

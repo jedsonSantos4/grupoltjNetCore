@@ -22,34 +22,10 @@ namespace Presentation.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost]
-        [Route("Auth")]
-        public async Task<ActionResult<dynamic>> Authenticate([FromBody] AuthUserModel model)
-        {
-
-            // Recupera o usuário
-            var user = await _user.Auth(model.Email, model.Password);
-
-            // Verifica se o usuário existe
-            if (user.Value == null)
-                return NotFound(new { message = "Usuário ou senha inválidos" });
-
-            // Gera o Token
-            var token = TokenConfig.GenerateToken(user.Value);
-
-            // Oculta a senha
-            user.Value.Password = "";
-
-            // Retorna os dados
-            return new
-            {
-                user = user.Value,
-                token
-            };
-        }
+   
 
         [HttpGet]
-        [Route("GetAll")]
+        [Route("getall")]
         public async Task<ActionResult<dynamic>> GetAll()
         {
             // Recupera o usuário
@@ -66,8 +42,8 @@ namespace Presentation.Controllers
         }
 
         //[HttpPost("{id}")]
-        [HttpPost]
-        [Route("Get")]
+        [HttpGet]
+        [Route("get")]
         public async Task<ActionResult<dynamic>> Get(string id)
         {
             // Recupera o usuário
@@ -75,7 +51,7 @@ namespace Presentation.Controllers
 
             // Verifica se o usuário existe
             if (user.Value == null)
-                return NotFound(new { message = "Usuários não localizados" });
+                return NotFound(new { message = "Usuário não localizado" });
 
             return new
             {
@@ -83,23 +59,66 @@ namespace Presentation.Controllers
             };
         }
 
-        [HttpPut]
-        [Route("Update")]
-        public async Task<ActionResult<dynamic>> Put([FromBody] UserViewModel model )
+        [HttpPost]
+        [Route("auth")]
+        public async Task<ActionResult<dynamic>> Authenticate([FromBody] AuthUserModel model)
         {
-            var upObjec = _mapper.Map<UserEntity>(model);
 
             // Recupera o usuário
-            var stat = await _user.UpdateAsync(upObjec);
+            var result = await _user.Auth(model.Email, model.Password);
 
             // Verifica se o usuário existe
-            if (!stat.Status)
-                return NotFound(new { message = "Usuários não localizados" });
-                        
+            if (result.Value == null)
+                return NotFound(new { message = "Usuário ou senha inválidos" });
+
+            // Gera o Token
+            var token = TokenConfig.GenerateToken(result.Value);
+
+            // Oculta a senha
+            result.Value.Password = "";
+
+            // Retorna os dados
             return new
             {
-                users = model
+                user = result.Value,
+                token
             };
+        }
+        [HttpPost]
+        [Route("insert")]
+        public async Task<ActionResult<dynamic>> Insert([FromBody] CreateUserViewModel model)
+        {
+            var result = await _user.InsertAsync(_mapper.Map<UserEntity>(model));
+                       
+            if (!result.Status)            
+                return NotFound( result.Message );            
+
+            return Ok("Great, registration success");
+        }
+
+        [HttpPut]
+        [Route("update")]
+        public async Task<ActionResult<dynamic>> Put([FromBody] UserViewModel model)
+        {
+            var result = await _user.UpdateAsync(_mapper.Map<UserEntity>(model));
+
+            if (!result.Status)
+                return NotFound(new { message = "Usuários não pode ser atualizado" });
+
+            return new
+            {  users = model };
+        }
+
+        [HttpDelete]
+        [Route("delete")]
+        public async Task<ActionResult<dynamic>> Delete( string id)
+        {
+            var result = await _user.DeleteAsync(id);
+
+            if (!result.Status)
+                return NotFound(result.Message);
+
+            return Ok("Great, remove registration success");
         }
     }
 }
