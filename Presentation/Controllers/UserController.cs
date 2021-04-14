@@ -63,24 +63,20 @@ namespace Presentation.Controllers
         [Route("auth")]
         public async Task<ActionResult<dynamic>> Authenticate([FromBody] AuthUserModel model)
         {
-
             // Recupera o usuário
             var result = await _user.Auth(model.Email, model.Password);
 
             // Verifica se o usuário existe
             if (result.Value == null)
-                return NotFound(new { message = "Usuário ou senha inválidos" });
+                return NotFound(result.Message);
 
             // Gera o Token
             var token = TokenConfig.GenerateToken(result.Value);
 
-            // Oculta a senha
-            result.Value.Password = "";
-
             // Retorna os dados
             return new
             {
-                user = result.Value,
+                user = _mapper.Map<UserViewModel>(result.Value),
                 token
             };
         }

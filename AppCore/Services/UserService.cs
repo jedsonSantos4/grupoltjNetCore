@@ -1,4 +1,5 @@
 ﻿using AppCore.Entities;
+using AppCore.Helpers;
 using AppCore.Interface.Repositores;
 using AppCore.Interface.Services;
 using AppCore.validacoes;
@@ -22,15 +23,26 @@ namespace AppCore.Services
             var result = new ValidResult<UserEntity>();
 
             if (!ValidationEmail.IsValidEmail(email))
+            {
+                result.Message = "Erro: Email type is not valid. Please try again!";
                 return result;
+            }
 
             try
             {
                 result.Value = await _useRepo.Get(email,password);
 
-                //if (!ValidationPassword.IsPassWord(result.Value.password, password))
-                //    throw new Exception();
+                if (result.Value == null )
+                {
+                    result.Message = "Error: when querying user existence. Please try again!";
+                    return result;
+                }
 
+                if (!CryptoPassWord.IsValid(CryptoPassWord.ConvertToDeCrypto(result.Value.Password),password ))
+                {
+                    result.Message = "Erro: PassWord is not valid. Please try again!";
+                    return result;
+                }
                 result.Status = true;
                 return result;
             }
@@ -49,6 +61,7 @@ namespace AppCore.Services
                 await _useRepo.DeleteAsync(id);
                 result.Status = true;
                 result.Value = true;
+                
                 return result;
             }
             catch (Exception ex)
@@ -83,6 +96,18 @@ namespace AppCore.Services
                     return result;
                 }
 
+                if (string.IsNullOrEmpty(obj.Password))
+                {
+                    result.Message = "Erro: PassWord cannot be empty. Try again!";
+                    return result;
+                }
+                //if (!CryptoPassWord.IsAlphNumEsp(obj.Password))
+                //{
+                //    result.Message = "Erro: PassWord is not alphanumeric or has no special character. Try again!";
+                //    return result;
+                //}
+
+                obj.Password = CryptoPassWord.ConvertToCrypto(obj.Password);
 
                 await _useRepo.InsertAsync(obj);
                 result.Status = true;
