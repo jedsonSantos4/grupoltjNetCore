@@ -16,36 +16,11 @@ namespace Infrastructure.Repositories
         {
         }
 
-
         public async Task<UserEntity> Get(string email, string password)
-        {
-
-            //var users = new List<UserTokenEntity>
-            //{
-            //    new UserTokenEntity { Id = "1", Nome = "thaiz", Password = "jedson", Role = "gerente" },
-            //    new UserTokenEntity { Id = "2", Nome = "jedson", Password = "jedson", Role = "default" }
-            //};
-
-            //return users.Where(x => 
-            //                   x.Nome.ToLower() == nome.ToLower() && 
-            //                   x.Password == x.Password).FirstOrDefault();
-
-
+        {            
             var filter = Builders<UserEntity>.Filter.Eq(s => s.Email, email);
             return await Collection.Find(filter).FirstOrDefaultAsync();
-
         }
-
-        public async Task<UserEntity> Get(string id)
-        {
-
-            var filter = Builders<UserEntity>.Filter.Eq(s => s.Id, id);
-            return await Collection.Find(filter).FirstOrDefaultAsync();
-
-        }
-
-        public async Task<List<UserEntity>> GeAll() => await Collection.Find(_ => true).ToListAsync();
-        
     }
 
 

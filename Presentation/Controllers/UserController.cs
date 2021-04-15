@@ -4,6 +4,7 @@ using AppCore.Interface.Services;
 using AppCore.ViewModel;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -46,17 +47,20 @@ namespace Presentation.Controllers
         [Route("get")]
         public async Task<ActionResult<dynamic>> Get(string id)
         {
-            // Recupera o usuário
-            var user = await _user.Get(id);
-
-            // Verifica se o usuário existe
-            if (user.Value == null)
-                return NotFound(new { message = "Usuário não localizado" });
-
-            return new
+            try
             {
-                users = _mapper.Map<UserViewModel>(user.Value)
-            };
+                var res = await _user.Get(id);
+
+                return new
+                {
+                    users = res //_mapper.Map<UserViewModel>(user.Value)
+                };
+            }
+            catch (Exception)
+            {
+                return NotFound(new { message = "Usuário não localizado" });
+            }
+
         }
 
         [HttpPost]

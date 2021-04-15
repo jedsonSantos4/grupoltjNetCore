@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace AppCore.Interface.Services
 {
-    public interface IUserService : IBaseService<UserEntity>
+    public interface IEmployeeService : IBaseService<EmployeeEntity>
     {
-        Task<ValidResult<UserEntity>> Auth(string nome, string password);      
+
     }
 }

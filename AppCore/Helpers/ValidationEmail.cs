@@ -49,9 +49,9 @@ namespace AppCore
             }
         }
 
-        public static bool ExistingEmail(UserEntity user, List<UserEntity> source)
+        public static bool ExistingEmail(string email, IEnumerable<string> source)
         {
-            return source.Any(e => e.Email.Trim().ToUpper().Equals(user.Email.Trim().ToUpper()));
+            return source.Any(e => e.Trim().ToUpper().Equals(email.Trim().ToUpper()));
         }
 
     }

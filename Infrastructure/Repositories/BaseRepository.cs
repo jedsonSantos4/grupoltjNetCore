@@ -2,6 +2,7 @@
 using AppCore.Interface.Repositores;
 using MongoDB.Driver;
 using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -43,7 +44,16 @@ namespace Infrastructure.Repositories
         }
 
         public async Task DeleteAsync(string id) =>
-            await Collection.DeleteOneAsync(_clientSessionHandle, f => f.Id == id);     
-       
+            await Collection.DeleteOneAsync(_clientSessionHandle, f => f.Id == id);
+
+        public async Task<IEnumerable<T>> GeAll() => await Collection.Find(_ => true).ToListAsync();
+
+        public async Task<T> Get(string id)
+        {
+            var filter = Builders<T>.Filter.Eq(s => s.Id, id);
+            return await Collection.Find(filter).FirstOrDefaultAsync();
+
+        }
+
     }
 }

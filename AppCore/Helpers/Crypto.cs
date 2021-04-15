@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AppCore.Helpers
 {
-    public static class CryptoPassWord
+    public static class Crypto
     {
         private static readonly string key = "LtjGr#p@";
 

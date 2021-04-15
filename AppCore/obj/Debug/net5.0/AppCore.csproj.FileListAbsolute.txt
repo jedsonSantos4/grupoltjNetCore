@@ -9,4 +9,3 @@ C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\obj\Debug\net5.0\AppCo
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\obj\Debug\net5.0\AppCore.dll
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\obj\Debug\net5.0\ref\AppCore.dll
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\obj\Debug\net5.0\AppCore.pdb
-C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\AppCore\obj\Debug\net5.0\AppCore.csprojAssemblyReference.cache

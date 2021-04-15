@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AppCore.Interface.Repositores
@@ -11,6 +8,8 @@ namespace AppCore.Interface.Repositores
         Task UpdateAsync(T obj);
         Task InsertAsync(T obj);
         Task DeleteAsync(string id);
-      
+        Task<T> Get(string id);
+        Task<IEnumerable<T>> GeAll();
+
     }
 }

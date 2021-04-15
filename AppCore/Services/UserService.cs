@@ -6,6 +6,7 @@ using AppCore.validacoes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AppCore.Services
@@ -38,7 +39,7 @@ namespace AppCore.Services
                     return result;
                 }
 
-                if (!CryptoPassWord.IsValid(CryptoPassWord.ConvertToDeCrypto(result.Value.Password),password ))
+                if (!Crypto.IsValid(Crypto.ConvertToDeCrypto(result.Value.Password),password ))
                 {
                     result.Message = "Erro: PassWord is not valid. Please try again!";
                     return result;
@@ -89,8 +90,7 @@ namespace AppCore.Services
                     result.Message = "Erro: Email type is not valid. Please try again!";
                     return result;
                 }
-
-                if (ValidationEmail.ExistingEmail(obj, users.Value))
+                if (ValidationEmail.ExistingEmail(obj.Email, users.Value.Select(p => p.Email)))
                 {
                     result.Message = "Erro: Email already has a registration. Please try another email";
                     return result;
@@ -107,7 +107,7 @@ namespace AppCore.Services
                 //    return result;
                 //}
 
-                obj.Password = CryptoPassWord.ConvertToCrypto(obj.Password);
+                obj.Password = Crypto.ConvertToCrypto(obj.Password);
 
                 await _useRepo.InsertAsync(obj);
                 result.Status = true;
@@ -145,14 +145,14 @@ namespace AppCore.Services
                 return result;
             }
         }
-
-        public async Task<ValidResult<UserEntity>> Get(string id)
+        
+        public async Task<ValidResult<List<UserEntity>>> GetAll()
         {
-            var result = new ValidResult<UserEntity>();
+            var result = new ValidResult<List<UserEntity>>();
             try
             {
-                result.Value = await _useRepo.Get(id);
-                result.Status = true;
+                result.Value = (List<UserEntity>)await _useRepo.GeAll();
+                result.Status = true;               
                 return result;
             }
             catch (Exception ex)
@@ -161,20 +161,18 @@ namespace AppCore.Services
                 return result;
             }
         }
-        
-        public async Task<ValidResult<List<UserEntity>>> GetAll()
+
+        public async Task<UserEntity> Get(string id)
         {
-            var result = new ValidResult<List<UserEntity>>();
             try
             {
-                result.Value = await _useRepo.GeAll();
-                result.Status = true;               
-                return result;
+                return await _useRepo.Get(id);
+                
             }
             catch (Exception ex)
             {
-                result.Message = ex.Message;
-                return result;
+                throw new Exception(ex.Message);
+
             }
         }
     }

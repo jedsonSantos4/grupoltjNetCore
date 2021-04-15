@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace AppCore.Interface.Repositores
 {
-    public interface IUserRepository : IBaseRepository<UserEntity> 
+    public interface IEmployeeRepository : IBaseRepository<EmployeeEntity> 
     {
-        Task<UserEntity> Get(string nome, string password);     
+        
     }
 }

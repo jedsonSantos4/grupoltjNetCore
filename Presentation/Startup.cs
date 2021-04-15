@@ -98,17 +98,19 @@ namespace Presentation
             #endregion
 
             #region services
-          
             
             services.AddTransient<IUserService, UserService>();
-                       
+            services.AddTransient<IEmployeeService, EmployeeService>();
+
 
             #endregion
 
 
             #region repositorios
-            
+
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+
             #endregion
 
         }
