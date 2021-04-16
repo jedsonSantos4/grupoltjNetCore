@@ -1,6 +1,8 @@
 ﻿using AppCore.Entities;
 using AppCore.Interface.Services;
+using AppCore.ViewModel.Employee;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace Presentation.Controllers
 {
+    [Route("api/employee")]
+    [ApiController]
+    [Authorize]
     public class EmployeeController : Controller
     {
         private readonly IEmployeeService _employ;
@@ -25,15 +30,15 @@ namespace Presentation.Controllers
         public async Task<ActionResult<dynamic>> GetAll()
         {
             // Recupera o usuário
-            var users = await _employ.GetAll();
+            var res = await _employ.GetAll();
 
             // Verifica se o usuário existe
-            if (users.Value == null)
+            if (res.Value == null)
                 return NotFound(new { message = "Usuários não localizados" });
 
             return new
             {
-                users = users.Value//_mapper.Map<List<UserViewModel>>(users.Value)
+                employee = _mapper.Map<List<EmployeeViewModel>>(res.Value)
             };
         }
 
@@ -49,7 +54,7 @@ namespace Presentation.Controllers
 
                 return new
                 {
-                    users = res //_mapper.Map<UserViewModel>(user.Value)
+                    employee = _mapper.Map<EmployeeViewModel>(res)
                 };
             }
             catch (Exception)
@@ -62,9 +67,10 @@ namespace Presentation.Controllers
       
         [HttpPost]
         [Route("insert")]
-        public async Task<ActionResult<dynamic>> Insert([FromBody] EmployeeEntity model)
+        public async Task<ActionResult<dynamic>> Insert([FromBody] EmployeeViewModel model)
         {
-            var result = await _employ.InsertAsync(model);
+
+            var result = await _employ.InsertAsync(_mapper.Map<EmployeeEntity>(model));
 
             if (!result.Status)
                 return NotFound(result.Message);
@@ -74,15 +80,15 @@ namespace Presentation.Controllers
 
         [HttpPut]
         [Route("update")]
-        public async Task<ActionResult<dynamic>> Put([FromBody] EmployeeEntity model)
+        public async Task<ActionResult<dynamic>> Put([FromBody] EmployeeViewModel model)
         {
-            var result = await _employ.UpdateAsync(model);
+            var res = await _employ.UpdateAsync(_mapper.Map<EmployeeEntity>(model));
 
-            if (!result.Status)
-                return NotFound(new { message = "Usuários não pode ser atualizado" });
+            if (!res.Status)
+                return NotFound(res.Message);
 
             return new
-            { users = model };
+            { employee = model };
         }
 
         [HttpDelete]

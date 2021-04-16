@@ -78,6 +78,11 @@ namespace AppCore.Services
             try
             {
                 var employee = await _employee.Get(obj.Id);
+                if (employee == null)
+                {
+                    result.Message = "Erro: User not located,. Try again";
+                    return result;
+                }
 
                 employee.Email = obj.Email;
                 employee.Nome = obj.Nome;

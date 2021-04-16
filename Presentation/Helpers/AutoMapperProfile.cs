@@ -1,10 +1,7 @@
 ﻿using AppCore.Entities;
 using AppCore.ViewModel;
+using AppCore.ViewModel.Employee;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Presentation
 {
@@ -18,6 +15,9 @@ namespace Presentation
 
             CreateMap<CreateUserViewModel, UserEntity>();
             CreateMap<UserEntity, CreateUserViewModel>();
+
+            CreateMap<EmployeeEntity, EmployeeViewModel>();
+            CreateMap<EmployeeViewModel, EmployeeEntity>();
 
         }
     }

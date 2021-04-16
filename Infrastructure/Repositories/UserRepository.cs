@@ -21,6 +21,7 @@ namespace Infrastructure.Repositories
             var filter = Builders<UserEntity>.Filter.Eq(s => s.Email, email);
             return await Collection.Find(filter).FirstOrDefaultAsync();
         }
+
     }
 
 

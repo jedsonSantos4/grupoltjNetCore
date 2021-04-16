@@ -28,7 +28,6 @@ namespace Infrastructure.Repositories
 
         public async Task InsertAsync(T obj) {
                         
-            obj.DataCreate = DateTime.Now;
             await Collection.InsertOneAsync(_clientSessionHandle, obj);
         }
 

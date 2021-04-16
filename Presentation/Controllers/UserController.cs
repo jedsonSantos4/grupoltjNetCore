@@ -3,6 +3,7 @@ using AppCore.Entities;
 using AppCore.Interface.Services;
 using AppCore.ViewModel;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 namespace Presentation.Controllers
 {
     [Route("api/User")]
-    [ApiController]
+    [ApiController]   
     public class UserController : Controller
     {
         private readonly IUserService _user;
