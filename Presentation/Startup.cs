@@ -1,3 +1,4 @@
+using Amazon.S3;
 using AppCore.Interface.Repositores;
 using AppCore.Interface.Services;
 using AppCore.Services;
@@ -29,6 +30,8 @@ namespace Presentation
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           
+
             #region Config MongoDB
             services.AddSingleton<IMongoClient>(c =>
             {                
@@ -111,6 +114,13 @@ namespace Presentation
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 
+            #endregion
+
+            #region Config AWS S3
+
+            services.AddDefaultAWSOptions(Configuration.GetAWSOptions());
+            services.AddAWSService<IAmazonS3>();
+            
             #endregion
 
         }

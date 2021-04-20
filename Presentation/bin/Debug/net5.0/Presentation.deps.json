@@ -33,6 +33,9 @@
     ".NETCoreApp,Version=v5.0": {
       "Presentation/1.0.0": {
         "dependencies": {
+          "AWSSDK.DynamoDBv2": "3.7.0.14",
+          "AWSSDK.Extensions.NETCore.Setup": "3.7.0.1",
+          "AWSSDK.S3": "3.7.0.15",
           "AppCore": "1.0.0",
           "AutoMapper": "10.1.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
@@ -149,7 +152,7 @@
           "Microsoft.Extensions.Identity.Stores": "5.0.0.0",
           "Microsoft.Extensions.Localization.Abstractions": "5.0.0.0",
           "Microsoft.Extensions.Localization": "5.0.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "5.0.0.0",
+          "Microsoft.Extensions.Logging.Abstractions.Reference": "5.0.0.0",
           "Microsoft.Extensions.Logging.Configuration": "5.0.0.0",
           "Microsoft.Extensions.Logging.Console": "5.0.0.0",
           "Microsoft.Extensions.Logging.Debug": "5.0.0.0",
@@ -364,6 +367,62 @@
           "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "AWSSDK.Core/3.7.0.14": {
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.0.14"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
+        }
+      },
+      "AWSSDK.DynamoDBv2/3.7.0.14": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.0.14"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.0.14"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.DynamoDBv2.dll": {}
+        }
+      },
+      "AWSSDK.Extensions.NETCore.Setup/3.7.0.1": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.0.14",
+          "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.100.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.dll": {}
+        }
+      },
+      "AWSSDK.S3/3.7.0.15": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.0.14"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.0.15"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.S3.dll": {}
+        }
+      },
       "BCrypt.Net-Next/4.0.2": {
         "runtime": {
           "lib/net5.0/BCrypt.Net-Next.dll": {
@@ -414,6 +473,7 @@
         }
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/3.0.0": {},
+      "Microsoft.Extensions.Logging.Abstractions/2.0.0": {},
       "Microsoft.Extensions.Options/3.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0",
@@ -715,6 +775,8 @@
       },
       "Infrastructure/1.0.0": {
         "dependencies": {
+          "AWSSDK.Extensions.NETCore.Setup": "3.7.0.1",
+          "AWSSDK.S3": "3.7.0.15",
           "AppCore": "1.0.0",
           "MongoDB.Driver": "2.12.1"
         },
@@ -1367,7 +1429,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Logging.Abstractions/5.0.0.0": {
+      "Microsoft.Extensions.Logging.Abstractions.Reference/5.0.0.0": {
         "compile": {
           "Microsoft.Extensions.Logging.Abstractions.dll": {}
         },
@@ -2445,6 +2507,34 @@
       "path": "automapper.extensions.microsoft.dependencyinjection/8.1.1",
       "hashPath": "automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512"
     },
+    "AWSSDK.Core/3.7.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n9V+mwRStMzXl/GnD+J0uwnySMUB/Ug+yJ0G2B4XBQZYIegWWfqeQT2KqaP4hI08L49vY6JDIWIKEW4sNidNEg==",
+      "path": "awssdk.core/3.7.0.14",
+      "hashPath": "awssdk.core.3.7.0.14.nupkg.sha512"
+    },
+    "AWSSDK.DynamoDBv2/3.7.0.14": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RsDJbO0g58Vii285ifzGCPGNdctIyWHose66CBWBuaQKRTPrySoPL32o50b1a6nwjpgwF5e2UzixnmoDMFYNLQ==",
+      "path": "awssdk.dynamodbv2/3.7.0.14",
+      "hashPath": "awssdk.dynamodbv2.3.7.0.14.nupkg.sha512"
+    },
+    "AWSSDK.Extensions.NETCore.Setup/3.7.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cEsWQnC8uisjpv9l3AYI5XyM9k27g/HESGI214IzGGmclZapZRzTishuWVrRjql1NaeHvUXgzylUXXdQ4e6x1A==",
+      "path": "awssdk.extensions.netcore.setup/3.7.0.1",
+      "hashPath": "awssdk.extensions.netcore.setup.3.7.0.1.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.7.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iy1ruAZI9dVZwcrDqyi6iyP2Wd0k/cuxAoAFwu6u4qOUWzsB6k2jBt+lIFNAekJOlOZASvKpWkfbyz/9Mq/kTQ==",
+      "path": "awssdk.s3/3.7.0.15",
+      "hashPath": "awssdk.s3.3.7.0.15.nupkg.sha512"
+    },
     "BCrypt.Net-Next/4.0.2": {
       "type": "package",
       "serviceable": true,
@@ -2500,6 +2590,13 @@
       "sha512": "sha512-ofQRroDlzJ0xKOtzNuaVt6QKNImFkhkG0lIMpGl7PtXnIf5SuLWBeiQZAP8DNSxDBJJdcsPkiJiMYK2WA5H8dQ==",
       "path": "microsoft.extensions.dependencyinjection.abstractions/3.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.3.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6ZCllUYGFukkymSTx3Yr0G/ajRxoNJp7/FqSxSB4fGISST54ifBhgu4Nc0ItGi3i6DqwuNd8SUyObmiC++AO2Q==",
+      "path": "microsoft.extensions.logging.abstractions/2.0.0",
+      "hashPath": "microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Options/3.0.0": {
       "type": "package",
@@ -3221,7 +3318,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Logging.Abstractions/5.0.0.0": {
+    "Microsoft.Extensions.Logging.Abstractions.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

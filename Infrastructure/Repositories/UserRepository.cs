@@ -1,10 +1,7 @@
 ﻿using AppCore.Entities;
 using AppCore.Interface.Repositores;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {

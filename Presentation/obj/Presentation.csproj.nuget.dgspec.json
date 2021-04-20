@@ -120,6 +120,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AWSSDK.Extensions.NETCore.Setup": {
+              "target": "Package",
+              "version": "[3.7.0.1, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.0.15, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.12.1, )"
@@ -187,6 +195,18 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AWSSDK.DynamoDBv2": {
+              "target": "Package",
+              "version": "[3.7.0.14, )"
+            },
+            "AWSSDK.Extensions.NETCore.Setup": {
+              "target": "Package",
+              "version": "[3.7.0.1, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.0.15, )"
+            },
             "AutoMapper": {
               "target": "Package",
               "version": "[10.1.1, )"

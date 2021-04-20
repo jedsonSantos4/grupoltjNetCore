@@ -54,3 +54,7 @@ C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\ref\Presentation.dll
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.pdb
 C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\obj\Debug\net5.0\Presentation.genruntimeconfig.cache
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\bin\Debug\net5.0\AWSSDK.Core.dll
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\bin\Debug\net5.0\AWSSDK.DynamoDBv2.dll
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\bin\Debug\net5.0\AWSSDK.Extensions.NETCore.Setup.dll
+C:\Users\ADM\Documents\Rubens\ltj.Teste\Ltj.Teste\Presentation\bin\Debug\net5.0\AWSSDK.S3.dll
