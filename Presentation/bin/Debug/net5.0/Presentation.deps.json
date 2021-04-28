@@ -760,6 +760,7 @@
       },
       "AppCore/1.0.0": {
         "dependencies": {
+          "AWSSDK.S3": "3.7.0.15",
           "AutoMapper": "10.1.1",
           "BCrypt.Net-Next": "4.0.2",
           "Microsoft.Extensions.Configuration": "5.0.0",

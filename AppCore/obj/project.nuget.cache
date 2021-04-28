@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "xh7lqt6JCS+h3Ej7VwWR7Q0tzkwWO1QT6fvE0FZIHCqTggmN0t0zkTyuVsXzlBCkJ67xvjNpM3HBKXOY7ia5vg==",
+  "dgSpecHash": "X0Fi18cy585zn3olNWmqtdkFo/QvOaU+NHMyAKSqTZrdPxlDea09YEC8hFeQ8nT2h+lQfEUlkNklfHhIhiOd0g==",
   "success": true,
   "projectFilePath": "C:\\Users\\ADM\\Documents\\Rubens\\ltj.Teste\\Ltj.Teste\\AppCore\\AppCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADM\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\ADM\\.nuget\\packages\\awssdk.core\\3.7.0.14\\awssdk.core.3.7.0.14.nupkg.sha512",
+    "C:\\Users\\ADM\\.nuget\\packages\\awssdk.s3\\3.7.0.15\\awssdk.s3.3.7.0.15.nupkg.sha512",
     "C:\\Users\\ADM\\.nuget\\packages\\bcrypt.net-next\\4.0.0\\bcrypt.net-next.4.0.0.nupkg.sha512",
     "C:\\Users\\ADM\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\ADM\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

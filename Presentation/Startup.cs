@@ -104,6 +104,7 @@ namespace Presentation
             
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddTransient<IPictureService, PictureService>();
 
 
             #endregion
@@ -113,6 +114,7 @@ namespace Presentation
 
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddTransient<IPictureRepository, PictureRepository>();
 
             #endregion
 
